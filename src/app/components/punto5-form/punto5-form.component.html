@@ -1,0 +1,25 @@
+<form>
+    <div class="mb-3">
+      <label for="idDniEspectador" class="form-label">DNI: </label>
+      <input type="number" class="form-control" id="idDniEspectador" placeholder="11.111.111">
+    </div>
+    <div class="mb-3">
+      <label for="idPrecioReal" class="form-label">Precio: </label>
+      <input type="text" class="form-control" id="idPrecioReal" placeholder="$ 0.00">
+    </div>
+    <div class="mb-3">
+      <label class="form-check-label" for="idTipoEspectador">Tipo de espectador</label>
+      <select class="form-select" name="tipoEspectador" id="idTipoEspectador">
+      <option value="L">Local</option>
+      <option value="E">Extranjero</option>
+    </select>
+    </div>
+    <div class="mb-3">
+        <label for="idFechaCobro" class="form-label">Fecha: </label>
+        <input type="date" name="fechaCobro" id="idFechaCobro" max="today">
+    </div>
+    <div class="mb-3">
+        <label for="idPrecioCobrado" *ngIf="">Total a pagar: $</label>
+    </div>
+    <button type="button" class="btn btn-primary">Registrar</button>
+  </form>
