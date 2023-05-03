@@ -1,25 +1,29 @@
-<form>
+<form class="card">
+  <div class="card-header">REGISTRO DE TICKETS</div>
+  <div class="row">
     <div class="mb-3">
-      <label for="idDniEspectador" class="form-label">DNI: </label>
-      <input type="number" class="form-control" id="idDniEspectador" placeholder="11.111.111">
+      <label for="dni" class="form-label col-sm-12 col-md-4">DNI: </label>
+      <input type="number" class="form-control col-sm-12 col-md-8" id="dni" placeholder="11.111.111" name="dni"  [(ngModel)]="ticket.dni"> 
     </div>
     <div class="mb-3">
-      <label for="idPrecioReal" class="form-label">Precio: </label>
-      <input type="text" class="form-control" id="idPrecioReal" placeholder="$ 0.00">
+      <label for="idPrecioReal" class="form-label col-sm-12 col-md-4">Precio: </label>
+      <input type="text" class="form-control col-sm-12 col-md-8" id="idPrecioReal" placeholder="$ 0.00" [(ngModel)]="ticket.precioReal">
     </div>
     <div class="mb-3">
-      <label class="form-check-label" for="idTipoEspectador">Tipo de espectador</label>
-      <select class="form-select" name="tipoEspectador" id="idTipoEspectador">
+      <label class="form-check-label col-sm-12 col-md-4" for="idTipoEspectador">Tipo de espectador</label>
+      <select class="form-select" name="tipoEspectador" id="idTipoEspectador" [(ngModel)]="ticket.tipoEspectador">
+      <option>Seleccione</option>
       <option value="L">Local</option>
       <option value="E">Extranjero</option>
     </select>
     </div>
     <div class="mb-3">
-        <label for="idFechaCobro" class="form-label">Fecha: </label>
-        <input type="date" name="fechaCobro" id="idFechaCobro" max="today">
+        <label for="idFechaCobro" class="form-label col-sm-12 col-md-4">Fecha: </label>
+        <input type="date" class="form-control col-sm-12 col-md-8" name="fechaCobro" [(ngModel)]="ticket.fechaCobro" id="idFechaCobro" max="today">
     </div>
-    <div class="mb-3">
-        <label for="idPrecioCobrado" *ngIf="">Total a pagar: $</label>
+    <div class="mb-3" *ngIf="ticket.precioReal !=0 && ticket.tipoEspectador!=' '">
+        <label for="idPrecioCobrado" class="form-label col-sm-12 col-md-4" >Total a pagar: $ {{ticket.precioCobrado}}</label>
     </div>
-    <button type="button" class="btn btn-primary">Registrar</button>
+  </div>
+    <button type="button" class="btn btn-primary" (click)="enviarTicket()">Registrar</button>
   </form>

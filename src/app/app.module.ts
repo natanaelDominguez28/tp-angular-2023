@@ -8,6 +8,7 @@ import { Punto2Component } from './components/punto2/punto2.component';
 import { HeaderComponent } from './components/header/header.component';
 import { Punto5Component } from './components/punto5/punto5.component';
 import { Punto5FormComponent } from './components/punto5-form/punto5-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { Punto5FormComponent } from './components/punto5-form/punto5-form.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

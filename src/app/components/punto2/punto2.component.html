@@ -1,9 +1,77 @@
 <div class="card">
-    <div class="card-body">
-        <p class="card-text bg-warning">Palabra elegida: {{obtenerPalabraRandom()}}</p>
-        <p>Tiene {{contarVocales()}} vocales</p>
+  <div class="card-body align-content-center">
+    <h3 class="text-center">JUGUEMOS CON LAS PALABRAS</h3>
+    <hr />
+    <div class="align-content-center">
+      Palabra elegida:
+      <input
+        type="text"
+        class="bg-warning text-center"
+        style="border-radius: 20px"
+        [value]="palabraRandom"
+      />
+      <br />
+      Responde: {{ tarea }}
+      <br />
+      Tu respuesta:
+      <input type="number" [(ngModel)]="respuesta" >
+      <br />
+      Palabra n°: {{iteraciones}}
+      <br />
+      <button class="btn btn-success" (click)="jugar()">JUGAR</button>
+
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        (click)="comprobar()"
+      >
+        COMPROBAR
+      </button>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">RESULTADOS</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Palabra N°: {{iteraciones}}</p>
+            <p>Palabra: {{palabraRandom}}</p>
+            <p>Tu respuesta: {{respuesta}}</p>
+            <p>Estado: {{mensaje}}</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--p>Tiene {{contarVocales()}} vocales</p>
         <p>Tiene {{contarConsonantes()}} consonantes</p>
         <p>Tiene {{totalLetras()}} letras</p>
-        <p>Tiene {{totalSilabas()}} silabas</p>
-    </div>
+        <p>Tiene {{totalSilabas()}} silabas</p-->
+  </div>
 </div>

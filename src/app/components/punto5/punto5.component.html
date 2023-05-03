@@ -1,1 +1,33 @@
-<p>punto5 works!</p>
+<br>
+<button class="btn btn-primary" (click)="agregarTicket()">AGREGAR</button>
+<br>
+<br>
+<h3>LISTADO DE TICKETS</h3>
+<hr>
+<table class="table table-striped">
+  <thead>
+  <tr>
+  <th>Id</th>
+  <th>DNI</th>
+  <th>ESPECTADOR</th>
+  <th>FECHA</th>
+  <th>PRECIO TICKET</th>
+  <th>TOTAL</th> 
+  <th> ACCIONES</th> 
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of tickets">
+  <td>{{item._id}}</td>
+  <td>{{item.dni}}</td>
+  <td>{{item.tipoEspectador}}</td>
+  <td>{{item.fechaCobro | date: 'dd/MM/yyyy'}}</td>
+  <td>{{item.precioReal}}</td>
+  <td>$ {{item.precioCobrado}}</td>
+  <td>
+  <button type="button" class="btn btn-danger" (click)="borrarTicket(item)">Borrar</button>
+  <button type="button" class="btn btn-info" (click)="elegirTicket(item)">Seleccionar</button>
+  </td>
+  </tr>
+  </tbody>
+  </table>
